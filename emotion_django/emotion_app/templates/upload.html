@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image - Emotion Detection</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>EmotionAI</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'upload' %}" class="nav-link active">
+                        <i class="fas fa-upload"></i> Upload
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'webcam' %}" class="nav-link">
+                        <i class="fas fa-video"></i> Live Detection
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content upload-page">
+        <div class="container">
+            <h1 class="page-title">
+                <span class="gradient-text">Upload Image</span>
+            </h1>
+            <p class="page-subtitle">Upload an image to detect emotions in faces</p>
+
+            <div class="upload-container">
+                <div class="glass-card upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drag & Drop your image here</h3>
+                        <p>or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-folder-open"></i> Choose File
+                        </button>
+                    </div>
+
+                    <div class="preview-area" id="previewArea" style="display: none;">
+                        <img id="previewImage" alt="Preview">
+                        <button class="btn btn-secondary btn-small" onclick="resetUpload()">
+                            <i class="fas fa-times"></i> Remove
+                        </button>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="analyzeBtn" style="display: none;" onclick="analyzeImage()">
+                        <i class="fas fa-brain"></i> Analyze Emotion
+                    </button>
+
+                    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Analyzing emotions...</p>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" id="resultsCard" style="display: none;">
+                    <h2><i class="fas fa-chart-bar"></i> Detection Results</h2>
+                    
+                    <div class="result-image-container">
+                        <img id="resultImage" alt="Result">
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-user"></i></div>
+                            <div class="stat-content">
+                                <h3 id="facesCount">0</h3>
+                                <p>Faces Detected</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="emotionResults"></div>
+
+                    <button class="btn btn-secondary" onclick="resetUpload()">
+                        <i class="fas fa-redo"></i> Analyze Another Image
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 EmotionAI. Powered by TensorFlow & Django.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/upload.js' %}"></script>
+</body>
+</html>

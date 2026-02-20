@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Detection - Emotion Detection</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>EmotionAI</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'upload' %}" class="nav-link">
+                        <i class="fas fa-upload"></i> Upload
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'webcam' %}" class="nav-link active">
+                        <i class="fas fa-video"></i> Live Detection
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content webcam-page">
+        <div class="container">
+            <h1 class="page-title">
+                <span class="gradient-text">Live Emotion Detection</span>
+            </h1>
+            <p class="page-subtitle">Real-time emotion analysis using your webcam</p>
+
+            <div class="webcam-container">
+                <div class="glass-card webcam-card">
+                    <div class="video-container">
+                        <video id="webcam" autoplay playsinline></video>
+                        <canvas id="overlay"></canvas>
+                        
+                        <div class="camera-placeholder" id="cameraPlaceholder">
+                            <i class="fas fa-video-slash"></i>
+                            <p>Camera is off</p>
+                        </div>
+                    </div>
+
+                    <div class="webcam-controls">
+                        <button class="btn btn-primary" id="startBtn" onclick="startWebcam()">
+                            <i class="fas fa-play"></i> Start Camera
+                        </button>
+                        <button class="btn btn-danger" id="stopBtn" onclick="stopWebcam()" style="display: none;">
+                            <i class="fas fa-stop"></i> Stop Camera
+                        </button>
+                        <button class="btn btn-secondary" id="captureBtn" onclick="captureFrame()" style="display: none;">
+                            <i class="fas fa-camera"></i> Capture & Analyze
+                        </button>
+                    </div>
+
+                    <div class="status-indicator">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span id="statusText">Camera is off</span>
+                    </div>
+                </div>
+
+                <div class="glass-card live-results-card">
+                    <h2><i class="fas fa-chart-line"></i> Live Results</h2>
+                    
+                    <div class="live-stats">
+                        <div class="live-stat">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h3 id="liveCount">0</h3>
+                                <p>Faces</p>
+                            </div>
+                        </div>
+                        <div class="live-stat">
+                            <i class="fas fa-smile"></i>
+                            <div>
+                                <h3 id="dominantEmotion">-</h3>
+                                <p>Dominant Emotion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="liveEmotionResults">
+                        <div class="empty-state">
+                            <i class="fas fa-eye-slash"></i>
+                            <p>Start the camera to see live results</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <p>The system analyzes emotions in real-time. Make sure your face is well-lit and clearly visible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 EmotionAI. Powered by TensorFlow & Django.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/webcam.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection AI</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>EmotionAI</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link active">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'upload' %}" class="nav-link">
+                        <i class="fas fa-upload"></i> Upload
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'webcam' %}" class="nav-link">
+                        <i class="fas fa-video"></i> Live Detection
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Emotion Detection</span>
+                    <br>Powered by AI
+                </h1>
+                <p class="hero-subtitle">
+                    Experience real-time emotion recognition using advanced deep learning technology.
+                    Detect 7 different emotions with high accuracy.
+                </p>
+                
+                <div class="emotion-tags">
+                    <span class="emotion-tag angry"><i class="fas fa-angry"></i> Angry</span>
+                    <span class="emotion-tag disgust"><i class="fas fa-grimace"></i> Disgust</span>
+                    <span class="emotion-tag fear"><i class="fas fa-flushed"></i> Fear</span>
+                    <span class="emotion-tag happy"><i class="fas fa-smile"></i> Happy</span>
+                    <span class="emotion-tag sad"><i class="fas fa-sad-tear"></i> Sad</span>
+                    <span class="emotion-tag surprise"><i class="fas fa-surprise"></i> Surprise</span>
+                    <span class="emotion-tag neutral"><i class="fas fa-meh"></i> Neutral</span>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="{% url 'webcam' %}" class="btn btn-primary">
+                        <i class="fas fa-video"></i>
+                        Start Live Detection
+                    </a>
+                    <a href="{% url 'upload' %}" class="btn btn-secondary">
+                        <i class="fas fa-upload"></i>
+                        Upload Image
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="glass-card feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered</h3>
+                    <p>Deep learning model trained on thousands of facial expressions</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time</h3>
+                    <p>Instant emotion detection with live camera feed</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>High Accuracy</h3>
+                    <p>Precise emotion recognition with confidence scores</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon"><i class="fas fa-camera"></i></div>
+                        <h3>Capture</h3>
+                        <p>Use your webcam or upload an image</p>
+                    </div>
+                    
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon"><i class="fas fa-search"></i></div>
+                        <h3>Detect</h3>
+                        <p>AI detects faces in the image</p>
+                    </div>
+                    
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon"><i class="fas fa-smile-beam"></i></div>
+                        <h3>Analyze</h3>
+                        <p>Emotion is recognized and displayed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 EmotionAI. Powered by Dhruval Rana & Umang Patel.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

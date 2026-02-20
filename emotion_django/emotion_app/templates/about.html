@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Emotion Detection</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>EmotionAI</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'upload' %}" class="nav-link">
+                        <i class="fas fa-upload"></i> Upload
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'webcam' %}" class="nav-link">
+                        <i class="fas fa-video"></i> Live Detection
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link active">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content about-page">
+        <div class="container">
+            <h1 class="page-title">
+                <span class="gradient-text">About EmotionAI</span>
+            </h1>
+
+            <div class="about-content">
+                <div class="glass-card">
+                    <h2><i class="fas fa-brain"></i> Technology</h2>
+                    <p>
+                        EmotionAI is powered by a deep learning Convolutional Neural Network (CNN) 
+                        trained to recognize seven distinct human emotions: Angry, Disgust, Fear, 
+                        Happy, Sad, Surprise, and Neutral.
+                    </p>
+                    <p>
+                        The model has been trained on thousands of facial expression images and uses 
+                        advanced computer vision techniques to detect faces and classify emotions 
+                        with high accuracy.
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <h2><i class="fas fa-cog"></i> How It Works</h2>
+                    <ol class="about-list">
+                        <li><strong>Face Detection:</strong> Uses Haar Cascade Classifier to detect faces in images or video frames</li>
+                        <li><strong>Preprocessing:</strong> Converts detected faces to grayscale and resizes to 48x48 pixels</li>
+                        <li><strong>Emotion Classification:</strong> Deep learning model analyzes facial features</li>
+                        <li><strong>Results:</strong> Displays the detected emotion with confidence scores</li>
+                    </ol>
+                </div>
+
+                <div class="glass-card">
+                    <h2><i class="fas fa-code"></i> Technology Stack</h2>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-server"></i>
+                            <span>Django</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-brain"></i>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-eye"></i>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h2><i class="fas fa-heart"></i> Emotions Detected</h2>
+                    <div class="emotions-grid">
+                        <div class="emotion-item angry-bg">
+                            <i class="fas fa-angry"></i>
+                            <span>Angry</span>
+                        </div>
+                        <div class="emotion-item disgust-bg">
+                            <i class="fas fa-grimace"></i>
+                            <span>Disgust</span>
+                        </div>
+                        <div class="emotion-item fear-bg">
+                            <i class="fas fa-flushed"></i>
+                            <span>Fear</span>
+                        </div>
+                        <div class="emotion-item happy-bg">
+                            <i class="fas fa-smile"></i>
+                            <span>Happy</span>
+                        </div>
+                        <div class="emotion-item sad-bg">
+                            <i class="fas fa-sad-tear"></i>
+                            <span>Sad</span>
+                        </div>
+                        <div class="emotion-item surprise-bg">
+                            <i class="fas fa-surprise"></i>
+                            <span>Surprise</span>
+                        </div>
+                        <div class="emotion-item neutral-bg">
+                            <i class="fas fa-meh"></i>
+                            <span>Neutral</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h2><i class="fas fa-shield-alt"></i> Privacy & Security</h2>
+                    <p>
+                        Your privacy is important to us. All image processing is done in real-time, 
+                        and images are not permanently stored on our servers. Webcam access is only 
+                        used for live detection and requires your explicit permission.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 EmotionAI. Powered by TensorFlow & Django.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
